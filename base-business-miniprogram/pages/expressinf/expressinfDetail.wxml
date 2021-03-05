@@ -1,0 +1,10 @@
+<!--详情-->
+<view class="jianyao">
+    <view>头像：<image src="{{datass.avatarurl}}" /></view>
+    <view>账号:<text>{{datass.accountno}}</text></view>
+    <view>昵称：<text>{{datass.nickname}}</text></view>
+    <view>openid：<text>{{datass.openid}}</text></view>   
+    <view>省<text>{{datass.provice}}</text></view>
+    <view>创建时间<text>{{datass.createtime}}</text></view>
+</view>
+

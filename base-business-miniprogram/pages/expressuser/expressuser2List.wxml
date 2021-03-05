@@ -1,0 +1,28 @@
+<!--列表-->
+<button class="keep" bindtap="bindToAdd">添加</button>
+<view class="wrapper">
+	<ul>
+		<block wx:for-items="{{datass}}" wx:key="id">
+			<li class="registration"  id="{{item.id}}">
+			<!--	<image class="user" src="../../images/user.png" />-->
+		  	   
+		  	   <view class="registration_time">用户名称<text>{{item.name}}</text></view>
+<view class="registration_time">用户类型<text>{{item.usertype}}</text></view>
+<view class="registration_time">手机号码<text>{{item.tel}}</text></view>
+<view class="registration_time">密码<text>{{item.pwd}}</text></view>
+<view class="registration_time">性别 0 女 1男<text>{{item.gender}}</text></view>
+<view class="registration_time">工作时间 0 上午 1 下午<text>{{item.worktime}}</text></view>
+<view class="registration_time">微信号码<text>{{item.vchartno}}</text></view>
+
+				<view class="registration_time">
+							<text class="active_num " bindtap="bindToDetail" id="{{item.id}}">详情</text>
+							<text class="active_num" bindtap="bindToEdit" id="{{item.id}}">修改</text>
+							<text class="active_num" bindtap="bindToAdd" id="{{item.id}}">新增</text>
+							<text class="active_num" bindtap="bindToDel" id="{{item.id}}">删除</text>
+							<image class="more" src="../../images/right2.png" bindtap="bindToDetail" id="{{item.id}}" />
+				</view>
+	 	</li>		
+		</block>
+	</ul>
+</view>
+

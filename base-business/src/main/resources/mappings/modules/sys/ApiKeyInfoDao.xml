@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.storage.modules.sys.dao.ApiKeyInfoDao">
+    <sql id="ApikeyColumns">
+        ak.uuid as "uuid",
+        ak.uid as "uid",
+		ak.create_time as "createTime",
+		ak.expire as "expire",
+		ak.remarks as "remarks"
+    </sql>
+
+    <insert id="save" parameterType="com.example.storage.modules.sys.entity.ApikeyInfo">
+        insert into apikey_info(uuid,uid,create_time,expire,remarks)
+           values(#{uuid},#{uid},#{createTime},#{expire},#{remarks});
+    </insert>
+
+    <update id="update" parameterType="com.example.storage.modules.sys.entity.ApikeyInfo">
+        UPDATE apikey_info SET expire = #{expire}, remarks = #{remarks} where uuid = #{uuid}
+    </update>
+
+    <select id="findByUuid" parameterType="com.example.storage.modules.sys.entity.ApikeyInfo" resultType="com.example.storage.modules.sys.entity.ApikeyInfo">
+        select
+        <include refid="ApikeyColumns"/>
+        from apikey_info ak where ak.uuid = #{uuid};
+    </select>
+
+    <select id="listByUid" resultType="com.example.storage.modules.sys.entity.ApikeyInfo">
+        select
+        <include refid="ApikeyColumns"/>
+        from apikey_info ak where ak.uid = #{uid};
+    </select>
+
+    <!-- 删除用户的apikey-->
+    <delete id="deleteByUidUuid">
+        delete from apikey_info where uuid = #{uuid}
+    </delete>
+
+    <sql id="managerApiKeyColumns">
+        `uuid`,
+        `expire`,
+        `remarks`,
+        `create_time` AS `createTime`
+    </sql>
+
+    <select id="selectValidListByTemplate" resultType="com.example.storage.modules.sys.pojo.po.SelectApiKeyInfo">
+        SELECT <include refid="managerApiKeyColumns"/>
+        FROM `apikey_info` 
+        <where>
+		 <if test="template != null and template != ''">
+		     <bind name="template" value="'%' + template + '%'" />
+		     (`uuid` LIKE  #{template} ESCAPE '/'
+             OR `remarks` LIKE  #{template} ESCAPE '/')
+		 </if>
+	    </where>
+        ORDER BY `create_time` DESC
+    </select>
+
+    <select id="selectValidCountByTemplate" resultType="int">
+        SELECT COUNT(*)
+        FROM `apikey_info`
+        <where>
+		 <if test="template != null and template != ''">
+		     <bind name="template" value="'%' + template + '%'" />
+		     (`uuid` LIKE  #{template} ESCAPE '/'
+             OR `remarks` LIKE  #{template} ESCAPE '/')
+		 </if>
+	    </where>
+    </select>
+
+</mapper>

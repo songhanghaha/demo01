@@ -1,0 +1,38 @@
+<!--新增-->
+<form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="add_person">
+        <input type="hidden" name="id" value="{{datass.id}}" hidden="true"/>
+         <view class="view1">
+            <view>用户名称:</view><input type="text" name="name" value="{{datass.name}}" placeholder="请输入用户名称"
+                placeholder-style="color: #999;" />
+        </view>
+<view class="view1">
+            <view>用户类型:</view><input type="text" name="usertype" value="{{datass.usertype}}" placeholder="请输入用户类型"
+                placeholder-style="color: #999;" />
+        </view>
+<view class="view1">
+            <view>手机号码:</view><input type="text" name="tel" value="{{datass.tel}}" placeholder="请输入手机号码"
+                placeholder-style="color: #999;" />
+        </view>
+<view class="view1">
+            <view>密码:</view><input type="text" name="pwd" value="{{datass.pwd}}" placeholder="请输入密码"
+                placeholder-style="color: #999;" />
+        </view>
+<view class="view1">
+            <view>性别 0 女 1男:</view><input type="text" name="gender" value="{{datass.gender}}" placeholder="请输入性别 0 女 1男"
+                placeholder-style="color: #999;" />
+        </view>
+<view class="view1">
+            <view>工作时间 0 上午 1 下午:</view><input type="text" name="worktime" value="{{datass.worktime}}" placeholder="请输入工作时间 0 上午 1 下午"
+                placeholder-style="color: #999;" />
+        </view>
+<view class="view1">
+            <view>微信号码:</view><input type="text" name="vchartno" value="{{datass.vchartno}}" placeholder="请输入微信号码"
+                placeholder-style="color: #999;" />
+        </view>
+
+    </view>
+    <button class="keep" formType="submit" type="primary">提交</button>
+    <button class="keep" formType="reset">重置</button>
+</form>
+

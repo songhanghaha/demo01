@@ -1,0 +1,63 @@
+<!--新增-->
+<form bindsubmit="formSubmit" bindreset="formReset">
+<view class="add_person">
+
+    <view class="view1">
+        <view>收件人姓名:</view><input type="text" name="receiver" placeholder="请输入收件人姓名" placeholder-style="color: #999;" />
+    </view>
+<view class="view1">
+        <view>收件地址:</view><input type="text" name="address" placeholder="请输入收件地址" placeholder-style="color: #999;" />
+    </view>
+<view class="view1">
+        <view>收件人手机号:</view><input type="text" name="receivetel" placeholder="请输入收件人手机号" placeholder-style="color: #999;" />
+    </view>
+<view class="view1">
+        <view>快递单号:</view><input type="text" name="expressno" placeholder="请输入快递单号" placeholder-style="color: #999;" />
+    </view>
+<view class="view1">
+        <view>楼层:</view><input type="text" name="floorr" placeholder="请输入楼层" placeholder-style="color: #999;" />
+    </view>
+<view class="view1">
+        <view>快递员id:</view><input type="text" name="courierid" placeholder="请输入快递员id" placeholder-style="color: #999;" />
+    </view>
+<view class="view1">
+        <view>快递员姓名:</view><input type="text" name="couriername" placeholder="请输入快递员姓名" placeholder-style="color: #999;" />
+    </view>
+<view class="view1">
+        <view>快递员性别:</view><input type="text" name="couriergender" placeholder="请输入快递员性别" placeholder-style="color: #999;" />
+    </view>
+<view class="view1">
+        <view>悬赏金额:</view><input type="text" name="price" placeholder="请输入悬赏金额" placeholder-style="color: #999;" />
+    </view>
+<view class="view1">
+        <view>取件人ID:</view><input type="text" name="collectid" placeholder="请输入取件人ID" placeholder-style="color: #999;" />
+    </view>
+<view class="view1">
+        <view>取件人姓名:</view><input type="text" name="collectname" placeholder="请输入取件人姓名" placeholder-style="color: #999;" />
+    </view>
+<view class="view1">
+        <view>取件人手机号:</view><input type="text" name="collecttel" placeholder="请输入取件人手机号" placeholder-style="color: #999;" />
+    </view>
+<view class="view1">
+        <view>取件人楼层:</view><input type="text" name="collectfloor" placeholder="请输入取件人楼层" placeholder-style="color: #999;" />
+    </view>
+<view class="view1">
+        <view>取件人房间号:</view><input type="text" name="collectdoorno" placeholder="请输入取件人房间号" placeholder-style="color: #999;" />
+    </view>
+<view class="view1">
+        <view>取件费用:</view><input type="text" name="collectprice" placeholder="请输入取件费用" placeholder-style="color: #999;" />
+    </view>
+<view class="view1">
+        <view>取件时间:</view><input type="text" name="collecttime" placeholder="请输入取件时间" placeholder-style="color: #999;" />
+    </view>
+<view class="view1">
+        <view>用户ID:</view><input type="text" name="userid" placeholder="请输入用户ID" placeholder-style="color: #999;" />
+    </view>
+
+   
+
+</view>
+<button class="keep" formType="submit" type="primary">提交</button>
+<button class="keep" formType="reset">重置</button>
+</form>
+

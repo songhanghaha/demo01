@@ -1,0 +1,5 @@
+<span style="font-size:14px;" style="margin-top:20px">
+  <button type="primary" class="btn" open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo">微信登录</button>
+  <button class="btn2" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">手机号登录/注册</button>
+  <button class="btn2"  bindtap='toBind'>去绑定</button>
+</span>

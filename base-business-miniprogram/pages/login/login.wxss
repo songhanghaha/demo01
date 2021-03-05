@@ -1,0 +1,17 @@
+/* pages/wxlogin/wxlogin.wxss */
+.btn{
+  margin-top: 30px;
+  background: #07C160;
+}
+.btn2{
+  margin-top: 30px;
+  border: 1px solid #07C160;
+  background:white;
+}
+.all{
+/* 蒙版 */
+position: absolute;
+width: 376px;
+height: 108.37px;
+background: #12191F;
+}

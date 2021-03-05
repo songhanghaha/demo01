@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.storage.modules.sys.dao.ApiKeyPermissionDao">
+    <select id="getPermissionByApiKey" parameterType="String" resultType="String">
+        SELECT a.`permissions`
+        FROM `apikey_permission` a 
+        WHERE a.`apikey` = #{apikey}
+    </select>
+    
+    <sql id="userApikeyColumns">
+		`apikey` AS apikey,
+		`permissions` AS permissions,
+		`create_time` AS createTime,
+		`update_time` AS updateTime
+	</sql>
+	
+	<select id="getUserApikeys"  resultType="com.example.storage.modules.sys.entity.ApikeyPermission">
+		SELECT
+		<include refid="userApikeyColumns" />
+		FROM `apikey_permission` 
+		WHERE `apikey`= #{apikey}
+	</select>
+	
+	<select id="validateApiKey" parameterType="String" resultType="com.example.storage.modules.sys.entity.ApikeyPermission">
+        SELECT
+        <include refid="userApikeyColumns"/>
+        FROM `apikey_permission` 
+        WHERE `apikey` = #{apikey}
+    </select>
+
+    <insert id="saveApiKey" parameterType="String">
+        INSERT INTO `apikey_permission` (`apikey`, `permissions`, `create_time`, `update_time`)
+         VALUES (#{apikey}, #{permissions}, now(), now());
+    </insert>
+
+    <update id="updateApiKey" parameterType="String">
+        UPDATE `apikey_permission` SET `permissions` = #{permissions}, `update_time`= now()  
+        WHERE `apikey` = #{apikey}
+    </update>
+
+    <delete id="deleteApiKey" parameterType="String">
+        DELETE FROM `apikey_permission` 
+        WHERE `apikey` = #{apikey}
+    </delete>
+	
+</mapper>

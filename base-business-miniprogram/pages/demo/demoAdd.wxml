@@ -1,0 +1,21 @@
+<!--新增-->
+<form bindsubmit="formSubmit" bindreset="formReset">
+<view class="add_person">
+    <view class="view1">
+        <view>头像:</view><input type="text" name="avatarurl" placeholder="请输入头像" placeholder-style="color: #999;" />
+    </view>
+    <view class="view1">
+        <view>账号:</view><input type="text" name="accountno" placeholder="请输入账号" placeholder-style="color: #999;" />
+    </view>
+    <view class="view1">
+        <view>密码:</view><input type="text" name="pwd" placeholder="请输入密码" placeholder-style="color: #999;" />
+    </view>
+    <view class="view1">
+        <view>昵称:</view><input type="text" name="nickname" placeholder="请输入昵称" placeholder-style="color: #999;" />
+    </view>
+   
+
+</view>
+<button class="keep" formType="submit" type="primary">提交</button>
+<button class="keep" formType="reset">重置</button>
+</form>

@@ -1,0 +1,15 @@
+page{
+    background: #f0f0f0;
+    color:#333;
+    font-size: 14px
+}
+
+.add_person{height: auto;overflow: hidden;background: #fff;border-top: 1px solid #f0f0f0;padding: 0 5%;}
+.add_person .view1{padding:5% 0;border-bottom: 1px solid #f0f0f0;height: auto;overflow: hidden}
+.add_person .view1 input,.add_person .view1 view{float: left}
+.add_person .view1 input{margin-top: -6px;margin-left: 10px}
+
+.set_default{padding: 5%;margin-top: 15px;background: #fff}
+.set_default image{width:20px;height: 20px;float: right}
+
+.keep{width:90%;background: #21cc71;color: #fff;margin: 20px auto}

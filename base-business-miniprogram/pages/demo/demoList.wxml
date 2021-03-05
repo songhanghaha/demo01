@@ -1,0 +1,80 @@
+<button class="keep" bindtap="bindToAdd">添加</button>
+<view class="swiper-tab">
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">全部</view>
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">已支付</view>
+  <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">未支付</view>
+</view>
+
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px"
+  bindchange="bindChange">
+  <!-- 全部 -->
+  <swiper-item>
+    <view id="wrapper">
+      <ul>
+        <block wx:for-items="{{datass}}" wx:key="id">
+          <li class="registration my_active">
+            <view class="active_time">accountno<text>{{item.accountno}}</text></view>
+            <image class="user" src="{{item.avatarurl}}" />
+            <view class="registration_time">nickname<text>{{item.nickname	}}</text></view>
+            <view class="registration_time">openid<text>{{item.openid}}</text></view>
+            <view class="registration_time">createtime<text>{{item.createtime}}</text></view>
+            <view>
+              <text class="active_num wait" bindtap="bindToDetail" id="{{item.id}}">详情</text>
+              <text class="active_num order" bindtap="bindToEdit" id="{{item.id}}">修改</text>
+              <text class="active_num history" bindtap="bindToAdd" id="{{item.id}}">新增</text>
+              <text class="active_num" bindtap="bindToDel" id="{{item.id}}">删除</text>
+            </view>
+          </li>
+        </block>
+      </ul>
+    </view>
+  </swiper-item>
+
+
+  <!-- 已支付 -->
+  <swiper-item>
+    <view id="wrapper">
+      <ul>
+        <block wx:for-items="{{datass2}}" wx:key="id">
+          <li class="registration my_active">
+            <view class="active_time">accountno<text>{{item.accountno}}</text></view>
+            <image class="user" src="{{item.avatarurl}}" />
+            <view class="registration_time">nickname<text>{{item.nickname	}}</text></view>
+            <view class="registration_time">openid<text>{{item.openid}}</text></view>
+            <view class="registration_time">createtime<text>{{item.createtime}}</text></view>
+            <view>
+              <text class="active_num wait" bindtap="bindToDetail" id="{{item.id}}">详情</text>
+              <text class="active_num order" bindtap="bindToEdit" id="{{item.id}}">修改</text>
+              <text class="active_num history" bindtap="bindToAdd" id="{{item.id}}">新增</text>
+              <text class="active_num" bindtap="bindToDel" id="{{item.id}}">删除</text>
+            </view>
+          </li>
+        </block>
+      </ul>
+    </view>
+  </swiper-item>
+
+
+  <!-- 未支付 -->
+  <swiper-item>
+    <view id="wrapper">
+      <ul>
+        <block wx:for-items="{{datass3}}" wx:key="id">
+          <li class="registration my_active">
+            <view class="active_time">accountno<text>{{item.accountno}}</text></view>
+            <image class="user" src="{{item.avatarurl}}" />
+            <view class="registration_time">nickname<text>{{item.nickname	}}</text></view>
+            <view class="registration_time">openid<text>{{item.openid}}</text></view>
+            <view class="registration_time">createtime<text>{{item.createtime}}</text></view>
+            <view>
+              <text class="active_num wait" bindtap="bindToDetail" id="{{item.id}}">详情</text>
+              <text class="active_num order" bindtap="bindToEdit" id="{{item.id}}">修改</text>
+              <text class="active_num history" bindtap="bindToAdd" id="{{item.id}}">新增</text>
+              <text class="active_num" bindtap="bindToDel" id="{{item.id}}">删除</text>
+            </view>
+          </li>
+        </block>
+      </ul>
+    </view>
+  </swiper-item>
+</swiper>

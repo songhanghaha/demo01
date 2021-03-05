@@ -1,0 +1,29 @@
+
+@charset "UTF-8";
+body {
+    font-family: PingFangSC-Regular, Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, 微软雅黑, Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0
+}
+
+.el-main{
+    /*el-main默认有padding 20px, 这里去除padding*/
+    padding:0;
+}
+
+.min-width {
+    min-width: 800px
+}
+
+.mini-button-14 {
+    size: mini;
+    font-size: 14px;
+}
+
+.mini-button-16 {
+    size: mini;
+    font-size: 16px;
+}

@@ -1,0 +1,22 @@
+page{
+    background: #f0f0f0;
+    color:#333;
+    font-size: 16px
+}
+
+.my_header_content{padding: 5%;background: #fff;margin: 10px 0;height: auto;overflow: hidden}
+.photo{width:60px;height: 60px;border-radius: 5px;float: left;margin-right: 10px}
+.jieshao .text1{font-size: 14px;color: #999;margin-left: 15px}
+.jieshao .text2{font-size: 14px;color: #999;display: block;margin-top: 10px}
+
+.list{padding:15px 5%;background:#fff;border-bottom: 1px solid #f0f0f0;height:20px}
+.list_icon{width:18px;height:18px;float:left;}
+.list .product{margin-left:10px;float:left}
+
+.product text{font-size: 12px;color: #999}
+.detail{width:14px;height:14px;float:right;}
+.kaitong{font-size: 14px;color: #999;float: right;margin-right: 10px}
+contact-button{float:right}
+.my_header_content .detail{margin-top: -23px}
+
+.icon{margin-top:10px}

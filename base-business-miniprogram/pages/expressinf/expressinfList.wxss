@@ -1,0 +1,51 @@
+/**index.wxss**/  
+.swiper {
+    width: 100%;
+    height: auto;
+}
+.swiper-tab{  
+    width: 100%;  
+    border-bottom: 2rpx solid #777777;  
+    text-align: center;  
+    line-height: 80rpx;}  
+.swiper-tab-list{  font-size: 30rpx;  
+    display: inline-block;  
+    width: 33.33%;  
+    color: #777777;  
+}  
+.on{ color: #da7c0c;  
+    border-bottom: 5rpx solid #da7c0c;}  
+  
+.swiper-box{ display: block; height: 100%; width: 100%; overflow: hidden; }  
+.swiper-box view{  
+    text-align: center;  
+}  
+
+page{
+    color:#333;
+    font-size: 14px
+}
+
+.my_prescription{width:100%;padding: 10px 0;border-top: 1px solid #f0f0f0}
+.my_prescription ul{width: 90%;border: 1px solid #21cc71;display: block;border-radius: 5px;height: 25px;margin: 0 auto}
+.my_prescription ul li{width: 33.3%;box-sizing: border-box;float: left;line-height: 25px;text-align: center;border-right: 1px solid #21cc71}
+.my_prescription ul li:last-child{border-right:none}
+.selected{background: #21cc71;color: #fff}
+
+.registration {border-bottom:1px solid #f0f0f0;margin-left:5%;height:auto;overflow:hidden;padding:3% 0;position:relative}
+.registration.my_active{width: 95%;margin-left: 5%;border-bottom: 1px solid #f0f0f0;display: block}
+.registration.my_active image{width:60px;height:80px;float:left;margin-top:2px}
+.registration view{margin-left:70px;font-size:13px;color:#666;line-height:22px}
+.registration view text.name{color:#151515}
+.registration view text.state{float:right;margin-right:5%}
+.registration viewp text.wait{color:#ff0000}
+.registration view text.order{color:#21cc71}
+.registration view text.history{color:#999}
+.registration view.registration_time text{color:#21cc71}
+.registration view text.name{color:#151515}
+.registration .registration_more{width:14px;height:14px;position:absolute;top:50%;right:5%;margin-top:-7px}
+.registration.my_active view.registration_time{margin-top:15px}
+.registration.my_active .active_num{margin-right:20px}
+.registration.my_active .active_time{font-size:14px;color:#21cc71;margin:0 0 10px 0}
+
+

@@ -1,0 +1,25 @@
+page{
+    color:#333;
+    font-size: 14px
+}
+.active_num{
+    margin-left: 30px
+}
+.my_prescription{width:100%;padding: 10px 0;border-top: 1px solid #f0f0f0}
+.my_prescription ul{width: 90%;border: 1px solid #21cc71;display: block;border-radius: 5px;height: 25px;margin: 0 auto}
+.my_prescription ul li{width: 33.3%;box-sizing: border-box;float: left;line-height: 25px;text-align: center;border-right: 1px solid #21cc71}
+.my_prescription ul li:last-child{border-right:none}
+.selected{background: #21cc71;color: #fff}
+
+.wrapper{width: 100%;}
+.wrapper .registration{width: 95%;margin-left: 5%;border-bottom: 1px solid #f0f0f0;display: block;padding: 3% 0}
+.wrapper .registration .user{width: 60px;height: 60px;float: left;margin-right: 15px}
+.registration_expert,.registration_time{color: #666;font-size: 13px}
+.registration_expert .name{color: #151515}
+.registration_expert .state{color: red;float: right;margin-right: 5%}
+.registration_time{margin-top: 8px}
+.registration_time text{color:#151515}
+.registration_time .more{width: 14px;height: 14px;float: right;margin-right: 5%}
+.registration_expert .order{color:#21cc71}
+.registration_expert .history{color:#999}
+

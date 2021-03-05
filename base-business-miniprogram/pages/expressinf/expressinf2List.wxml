@@ -1,0 +1,38 @@
+<!--列表-->
+<button class="keep" bindtap="bindToAdd">添加</button>
+<view class="wrapper">
+	<ul>
+		<block wx:for-items="{{datass}}" wx:key="id">
+			<li class="registration"  id="{{item.id}}">
+			<!--	<image class="user" src="../../images/user.png" />-->
+		  	   
+		  	   <view class="registration_time">收件人姓名<text>{{item.receiver}}</text></view>
+<view class="registration_time">收件地址<text>{{item.address}}</text></view>
+<view class="registration_time">收件人手机号<text>{{item.receivetel}}</text></view>
+<view class="registration_time">快递单号<text>{{item.expressno}}</text></view>
+<view class="registration_time">楼层<text>{{item.floorr}}</text></view>
+<view class="registration_time">快递员id<text>{{item.courierid}}</text></view>
+<view class="registration_time">快递员姓名<text>{{item.couriername}}</text></view>
+<view class="registration_time">快递员性别<text>{{item.couriergender}}</text></view>
+<view class="registration_time">悬赏金额<text>{{item.price}}</text></view>
+<view class="registration_time">取件人ID<text>{{item.collectid}}</text></view>
+<view class="registration_time">取件人姓名<text>{{item.collectname}}</text></view>
+<view class="registration_time">取件人手机号<text>{{item.collecttel}}</text></view>
+<view class="registration_time">取件人楼层<text>{{item.collectfloor}}</text></view>
+<view class="registration_time">取件人房间号<text>{{item.collectdoorno}}</text></view>
+<view class="registration_time">取件费用<text>{{item.collectprice}}</text></view>
+<view class="registration_time">取件时间<text>{{item.collecttime}}</text></view>
+<view class="registration_time">用户ID<text>{{item.userid}}</text></view>
+
+				<view class="registration_time">
+							<text class="active_num " bindtap="bindToDetail" id="{{item.id}}">详情</text>
+							<text class="active_num" bindtap="bindToEdit" id="{{item.id}}">修改</text>
+							<text class="active_num" bindtap="bindToAdd" id="{{item.id}}">新增</text>
+							<text class="active_num" bindtap="bindToDel" id="{{item.id}}">删除</text>
+							<image class="more" src="../../images/right2.png" bindtap="bindToDetail" id="{{item.id}}" />
+				</view>
+	 	</li>		
+		</block>
+	</ul>
+</view>
+

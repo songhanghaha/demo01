@@ -1,0 +1,30 @@
+spring:
+  profiles:
+    active: local
+  devtools:
+    restart:
+       enabled: false 
+  freemarker:
+    cache: false
+logging: 
+  level:
+    com.example.storage: info
+  file: base-business.log
+sso: 
+  email: 
+     timelimit: 600000
+     host: smtp.exmail.qq.com
+     smtp: smtp
+     port: 465
+     interval: 60000
+  token: 
+     expire: 3600
+  pekey: 8689798bcbb9a3533dd1ade8cdbe394d
+  aes-key: 65cccadb1a740df6e99f114afd9f886b
+  hmac-key: 015368d713f34c413a71a80bd088af6f
+  rabbitmq: 
+      uri: amqp://sso:sso@sso.staging.domain.com/sso
+      queue: logout-sso
+      
+queueName: publish.queue
+topicName: publish.topic

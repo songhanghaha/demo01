@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.storage.modules.user.dao.UserDao">
+
+   <select id="selectReviewListByTemplate" resultType="com.example.storage.modules.user.entity.User" >
+      SELECT * FROM user ORDER BY RAND() LIMIT 5
+   </select>
+   
+
+   <select id="selectUserByMobile" parameterType="String"  resultType="com.example.storage.modules.user.entity.User">
+       select * from `user` 
+       where `mobile` = #{mobile} 
+       and `is_deleted` = '0'
+   </select>
+   
+   <select id="selectUserById" parameterType="String"  resultType="com.example.storage.modules.user.entity.User">
+       select * from `user` 
+       where `id` = #{userId} 
+       and `is_deleted` = '0'
+   </select>
+
+    <sql id="managerUserColumns">
+        `id`,
+        `mobile`,
+        `status`,
+        `user_name` AS `userName`,
+        `user_type` AS `userType`,
+        `create_time` AS `createTime`,
+        `store` AS `isTestUser`
+    </sql>
+
+    <select id="selectValidListByTemplate" resultType="com.example.storage.modules.user.pojo.po.SelectUserListPO">
+        SELECT <include refid="managerUserColumns"/>
+        FROM `user` 
+        <where>
+		   <if test="template != null and template != ''">
+		      <bind name="template" value="'%' + template + '%'" />
+		      (`mobile` LIKE #{template} ESCAPE '/' 
+		      OR `user_name` LIKE #{template} ESCAPE '/'
+              OR `id` LIKE #{template} ESCAPE '/')
+		   </if>
+		   <if test="isDeleted != null and isDeleted != ''">
+		      AND `is_deleted` = #{isDeleted}
+		   </if>
+		 </where>
+         ORDER BY `create_time`
+    </select>
+
+    <select id="selectValidCountByTemplate" resultType="int">
+        SELECT COUNT(*)
+        FROM `user`
+        <where>
+		   <if test="template != null and template != ''">
+		      <bind name="template" value="'%' + template + '%'" />
+		      (`mobile` LIKE #{template} ESCAPE '/' 
+		      OR `user_name` LIKE #{template} ESCAPE '/'
+              OR `id` LIKE #{template} ESCAPE '/')
+		   </if>
+		   <if test="isDeleted != null and isDeleted != ''">
+		      AND `is_deleted` = #{isDeleted}
+		   </if>
+		 </where>
+    </select>
+    
+    <update id="updateUserTypeById">
+     UPDATE `user`
+     SET `user_type` = #{userType},
+         `update_time` = now()
+     WHERE `id` = #{id}
+     AND `is_deleted` = #{isDeleted}
+    </update>
+    
+    <select id = "selectIds" resultType = "string">
+       SELECT `id` FROM `user` WHERE `user_type` = #{userType} AND `is_deleted` = '0'
+    </select>
+    
+    <select id="selectCounts" resultType="int">
+       SELECT COUNT(*) from `user` WHERE `user_type` = #{userType} AND `is_deleted` = '0'
+    </select>
+    
+    <update id="updateUserColunms">
+     UPDATE `user` 
+     <set>
+        <if test="mobile != null and mobile != ''">
+          `mobile` = #{mobile},
+        </if>
+        <if test="status != null and status != ''">
+          `status` = #{status},
+        </if>
+        <if test="isTestUser != null">
+          `store` = #{isTestUser},
+        </if>
+        <if test="userType != null and userType != ''">
+          `user_type` = #{userType},
+        </if>
+        <if test="userName != null and userName != ''">
+          `user_name` = #{userName},
+        </if>
+        `update_time` = now()
+     </set>
+     WHERE `id` = #{id}
+     AND `is_deleted` = #{isDeleted}
+    </update>
+
+</mapper>

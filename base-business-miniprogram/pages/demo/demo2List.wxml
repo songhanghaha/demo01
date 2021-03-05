@@ -1,0 +1,24 @@
+<!--列表-->
+<button class="keep" bindtap="bindToAdd">添加</button>
+<view class="wrapper">
+	<ul>
+		<block wx:for-items="{{datass}}" wx:key="id">
+			<li class="registration"  id="{{item.id}}">
+			<!--	<image class="user" src="../../images/user.png" />-->
+		  	<image class="user" src="{{item.avatarurl}}" />
+				<view class="registration_time">accountno<text>{{item.accountno}}</text></view>
+				<view class="registration_time">nickname<text>{{item.nickname	}}</text></view>
+				<view class="registration_time">openid<text>{{item.openid}}</text></view>
+				<view class="registration_time">createtime<text>{{item.createtime}}</text></view>
+
+				<view class="registration_time">
+							<text class="active_num " bindtap="bindToDetail" id="{{item.id}}">详情</text>
+							<text class="active_num" bindtap="bindToEdit" id="{{item.id}}">修改</text>
+							<text class="active_num" bindtap="bindToAdd" id="{{item.id}}">新增</text>
+							<text class="active_num" bindtap="bindToDel" id="{{item.id}}">删除</text>
+							<image class="more" src="../../images/right2.png" bindtap="bindToDetail" id="{{item.id}}" />
+				</view>
+	 	</li>		
+		</block>
+	</ul>
+</view>

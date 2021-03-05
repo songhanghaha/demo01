@@ -1,0 +1,15 @@
+page{
+    background: #f0f0f0;
+    color:#333;
+    font-size: 14px
+}
+
+.daijian{padding: 10px 5%;}
+.jianyao{margin-bottom: 15px;padding: 0 5%;background: #fff;}
+.jianyao view{padding: 5% 0;border-bottom: 1px solid #f0f0f0;height: auto;overflow: hidden}
+.jianyao image{width:20px;height: 20px;float: right}
+.jianyao text{float: right}
+.fapiao image{width: 45px;height: 23px;float: right;margin-top: -3px}
+.dingdan{color: #fa7000}
+.dingdan .gray{color: #999;font-size: 12px;display: inline-block}
+

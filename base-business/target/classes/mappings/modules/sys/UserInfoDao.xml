@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.storage.modules.sys.dao.UserInfoDao">
+    <sql id="userInfoColumns">
+        u.id as "id",
+        u.username as "username",
+        u.password as "password",
+        u.email as "email",
+        u.company as "company",
+        u.location as "location",
+        u.position as "position",
+        u.mobile as "mobile",
+        u.state as "state",
+        u.create_by as "createBy",
+		u.create_date as "createDate",
+		u.update_by as "updateBy",
+		u.update_date as "updateDate",
+		u.remarks as "remarks",
+		u.del_flag as "delFlag",
+		u.roles as "roles"
+    </sql>
+
+    <select id="selectUserByEmail" parameterType="String" resultType="com.example.storage.modules.sys.entity.UserInfo">
+        select
+        <include refid="userInfoColumns"/>
+        from user_info u where u.email = #{email};
+    </select>
+
+    <select id="selectUserByUserName" parameterType="String" resultType="com.example.storage.modules.sys.entity.UserInfo">
+        select
+        <include refid="userInfoColumns"/>
+        from user_info u where u.username = #{username};
+    </select>
+
+    <select id="selectUserByUserId" parameterType="String" resultType="com.example.storage.modules.sys.entity.UserInfo">
+        select
+        <include refid="userInfoColumns"/>
+        from user_info u where u.id = #{id};
+    </select>
+
+    <select id="getAllUserInfo" resultType="com.example.storage.modules.sys.pojo.vo.back.UserInfoVo">
+        select
+         u.id,u.username,u.email,u.company,u.position,u.location
+          from user_info u where u.state = 1 order by u.id desc
+    </select>
+
+
+    <select id="getUserInfoByPwd" parameterType="String" resultType="com.example.storage.modules.sys.entity.UserInfo">
+        select
+        <include refid="userInfoColumns"/>
+        from user_info u where u.id = #{id} and u.password = #{password};
+    </select>
+
+    <update id="updateUserStateByValidate" parameterType="com.example.storage.modules.sys.entity.UserInfo">
+        update user_info set state = #{state} where id = #{id};
+    </update>
+
+    <update id="chageUserPwd" parameterType="String">
+        update user_info set password = #{password} where id = #{id};
+    </update>
+
+    <update id="updateUserEmail">
+        update user_info set email = #{email} where id = #{id}
+    </update>
+
+    <update id="update">
+        UPDATE user_info SET
+        password = #{password},
+        email = #{email}
+        WHERE 0=0
+        <if test="id != null and id != ''">
+            AND id = #{id}
+        </if>
+        <if test="email != null and email != ''">
+            AND email = #{email}
+        </if>
+        <if test="username != null and username != ''">
+            AND username = #{username}
+        </if>
+    </update>
+
+    <update id="updateUserField" parameterType="com.example.storage.modules.sys.entity.UserInfo">
+        update user_info set
+         `company` = #{company},
+         `position` = #{position},
+         `location` = #{location}
+         where id = #{id}
+    </update>
+
+    <insert id="userRegister" parameterType="com.example.storage.modules.sys.entity.UserInfo">
+        insert into user_info(id,username,password,email,state,mobile)
+           values(#{id},#{username},#{password},#{email},#{state},#{mobile});
+    </insert>
+
+    <select id="selectValidList" resultType="com.example.storage.modules.sys.pojo.vo.SelectManagerUserInfo">
+        SELECT `id`, `email`, `mobile`, `username`, `create_date` AS `createTime`, `remarks`, `roles`
+        FROM `user_info`
+        ORDER BY `create_date` DESC
+    </select>
+    <select id="selectValidCount" resultType="int">
+        SELECT COUNT(*)
+        FROM `user_info`
+    </select>
+    <select id="selectValidListByTemplate"
+            resultType="com.example.storage.modules.sys.pojo.vo.SelectManagerUserInfo">
+        <bind name="template" value="'%' + template + '%'" />
+        SELECT `id`, `email`, `mobile`, `username`, `create_date` AS `createTime`
+        FROM `user_info`
+        WHERE (`username` LIKE  #{template}
+        OR `mobile` LIKE  #{template}
+        OR `email` LIKE  #{template})
+        ORDER BY `create_date` DESC
+    </select>
+    <select id="selectValidCountByTemplate" resultType="int">
+        <bind name="template" value="'%' + template + '%'" />
+        SELECT COUNT(*)
+        FROM `user_info`
+        WHERE (`username` LIKE  #{template}
+        OR `mobile` LIKE  #{template}
+        OR `email` LIKE  #{template})
+    </select>
+</mapper>

@@ -1,0 +1,13 @@
+<!--我的-->
+<view class="my_header_content">
+    <image class="photo" src="../../images/user.png" wx:if="{{avatarurl == ''}}" />
+    <image class="photo" src="{{avatarurl}}" wx:if="{{avatarurl != ''}}" />
+    <view bindtap="bindTap" class="jieshao" wx:if="{{nickname == ''}}">
+        点击登录
+        <!--<text class="text1">10年车龄</text>-->
+        <text class="text2"></text> 
+    </view>
+    <view class="jieshao" wx:if="{{nickname != ''}}">{{nickname}}
+        <!--<text class="text1">10年车龄</text>--><text class="text2"></text> </view>
+    <image bindtap="bindTap" wx:if="{{nickname == ''}}" class="detail" src="../../images/right2.png" />
+</view>

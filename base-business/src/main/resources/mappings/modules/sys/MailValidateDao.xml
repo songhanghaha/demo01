@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.storage.modules.sys.dao.MailValidateDao">
+
+    <sql id="mailValidateColumns">
+        u.id as "id",
+        u.target_mail as "targetMail",
+        u.expiry_time as "expiryTime",
+        u.token AS "token",
+        u.state as "state",
+        u.create_by AS "createBy",
+		u.create_date AS "createDate",
+		u.update_by AS "updateBy",
+		u.update_date AS "updateDate",
+		u.remarks AS "remarks",
+		u.del_flag AS "delFlag"
+    </sql>
+
+    <select id="selectMailValidateByEmail" parameterType="String" resultType="com.example.storage.modules.sys.entity.MailValidate">
+        select
+        <include refid="mailValidateColumns"/>
+        from
+        mail_validate u
+        where u.target_mail = #{targetMail}
+        and u.state = '0';
+    </select>
+
+    <update id="updateMailValidateByEmail" parameterType="com.example.storage.modules.sys.entity.MailValidate">
+        update mail_validate set expiry_time = #{expiryTime},token = #{token} where target_mail = #{targetMail}
+    </update>
+
+    <update id="updateMailValidateStateByEmail" parameterType="com.example.storage.modules.sys.entity.MailValidate">
+        update mail_validate
+        set state = #{state},
+            update_date = now()
+        where target_mail = #{targetMail}
+    </update>
+
+    <update id="updateUseremail">
+        update mail_validate set target_mail = #{newEmail}  where target_mail = #{oldEmail}
+    </update>
+
+    <insert id="insertMailValidate" parameterType="com.example.storage.modules.sys.entity.MailValidate">
+        insert into mail_validate(id,target_mail,expiry_time,token,state)
+           values(#{id},#{targetMail},#{expiryTime},#{token},#{state});
+    </insert>
+
+</mapper>
